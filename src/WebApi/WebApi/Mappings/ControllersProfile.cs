@@ -8,7 +8,9 @@ namespace WebApi.Mappings
     {
         public ControllersProfile()
         {
-            
+            CreateMap<Product, ProductDisplayDto>();
+            CreateMap<ProductCreateDto, Product>();
+            CreateMap<ProductEditDto, Product>();
         }
     }
 }
