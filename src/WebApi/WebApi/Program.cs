@@ -1,7 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using WebApi.Base;
 using WebApi.Base.IRepositories;
+using WebApi.Base.IServices;
 using WebApi.Base.Repositories;
+using WebApi.Base.Services;
 using WebApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +18,9 @@ builder.Services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
 
 // Unit of work
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+// Services
+builder.Services.AddScoped<IProductService, ProductService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
