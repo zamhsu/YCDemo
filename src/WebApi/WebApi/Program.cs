@@ -4,6 +4,7 @@ using WebApi.Base.IRepositories;
 using WebApi.Base.IServices;
 using WebApi.Base.Repositories;
 using WebApi.Base.Services;
+using WebApi.Core;
 using WebApi.Mappings;
 using WebApi.Models;
 
@@ -39,6 +40,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseMiddleware<ErrorHandlerMiddleware>();
 
 app.MapControllers();
 
